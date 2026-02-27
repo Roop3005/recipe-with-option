@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefVoice | Smart Recipe Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>👨‍🍳 ChefVoice</h1>
+        </div>
+        <div class="header-controls">
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">🌙</button>
+            <button id="show-favorites-btn" class="btn-secondary">❤️ Favorites</button>
+        </div>
+    </header>
+
+    <div class="voice-section">
+        <div class="voice-container">
+            <button id="voice-btn" class="voice-btn">
+                <span class="mic-icon">🎙️</span> Speak
+            </button>
+            <p id="voice-status">Try saying: "Show me chicken recipes" or "Clear filters"</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <aside class="sidebar">
+            <div class="filter-header">
+                <h3>🥗 Ingredients Pantry</h3>
+                <button id="clear-filters" class="text-btn">Clear All</button>
+            </div>
+            <p class="helper-text">Select what you have:</p>
+            <div id="ingredient-filters" class="ingredient-grid">
+                <!-- Injected via JS -->
+            </div>
+        </aside>
+
+        <section class="content">
+            <div class="search-wrapper">
+                <input type="text" id="search-bar" placeholder="🔍 Search for recipes (e.g., 'Pasta', 'Burger')...">
+            </div>
+            <div class="results-header">
+                <h2 id="results-title">All Recipes</h2>
+                <span id="results-count">0 found</span>
+            </div>
+            <div id="recipe-grid" class="recipe-grid">
+                <!-- Recipes Injected via JS -->
+            </div>
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+            </div>
+            <div id="no-results" class="no-results hidden">
+                <p>😕 No recipes match your ingredients.</p>
+                <button onclick="app.resetFilters()">Reset Filters</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Recipe">
+                <div class="modal-info">
+                    <h2 id="modal-title">Recipe Title</h2>
+                    <div class="modal-meta" id="modal-meta"></div>
+                    <div id="modal-nutrition" class="modal-nutrition"></div>
+                    <h3>Ingredients</h3>
+                    <ul id="modal-ingredients"></ul>
+                    <h3>Instructions</h3>
+                    <ol id="modal-steps"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
